@@ -83,7 +83,7 @@
           CONSULTA
         </h2>
         <p>
-          Pagina para pesquisa do tema ou das questões.
+          Página para pesquisa do tema ou das questões.
         </p>
       </div>
       <div class="work_container layout_padding2">
@@ -92,21 +92,84 @@
         </div>
         <div class="box b-2">
           <img src="images/w-2.png" alt="">
-
         </div>
         <div class="box b-3">
           <img src="images/w-3.png" alt="">
-
         </div>
         <div class="box b-4">
           <img src="images/w-4.png" alt="">
-
         </div>
+
+        <!-- Adicionando botões para os PDFs -->
+        <div class="box b-5">
+          <h3>Selecione a Faculdade:</h3>
+          <button class="pdfButton" onclick="abrirPDF('pdf/teste.pdf')">ENEM</button>
+          <button class="pdfButton" onclick="abrirPDF('pdf2.pdf')">USP</button>
+          <button class="pdfButton" onclick="abrirPDF('pdf3.pdf')">UNICAMP</button>
+          <button class="pdfButton" onclick="abrirPDF('pdf4.pdf')">UNESP</button>
+          <button class="pdfButton" onclick="abrirPDF('pdf5.pdf')">FUVEST</button>
+        </div>
+
+        <!-- Área para exibir o PDF -->
+        <div class="pdfViewer" id="pdfContainer"></div>
+
       </div>
     </div>
   </section>
 
-  <!-- end work section -->
+  <style>
+    .pdfButton {
+      margin-right: 5px;
+      /* Adiciona um espaçamento entre os botões */
+      background-color: #6b2509;
+      /* Cor de fundo do botão */
+      color: white;
+      /* Cor do texto do botão */
+      border: none;
+      /* Remove a borda do botão */
+      padding: 5px 10px;
+      /* Adiciona preenchimento interno ao botão */
+      text-align: center;
+      /* Alinha o texto ao centro */
+      text-decoration: none;
+      /* Remove a decoração do texto */
+      display: inline-block;
+      /* Permite que o botão ocupe apenas o espaço necessário */
+      font-size: 16px;
+      /* Tamanho da fonte */
+      cursor: pointer;
+      /* Altera o cursor ao passar sobre o botão */
+      border-radius: 5px;
+      /* Adiciona bordas arredondadas */
+      transition: background-color 0.3s;
+      /* Adiciona uma transição suave na cor de fundo */
+    }
+
+    .pdfButton:hover {
+      background-color: #c08607;
+      /* Altera a cor de fundo ao passar o mouse sobre o botão */
+    }
+
+    .pdfViewer {
+      margin-top: 20px;
+      /* Adiciona uma margem entre os botões e o contêiner do PDF */
+      clear: both;
+      /* Garante que o contêiner do PDF comece em uma nova linha */
+      width: 100%;
+      /* Garante que o contêiner do PDF ocupe toda a largura disponível */
+    }
+  </style>
+
+  <script>
+    function abrirPDF(pdf) {
+      // Exibindo o PDF selecionado dentro da página
+      var pdfContainer = document.getElementById("pdfContainer");
+      pdfContainer.innerHTML = '<embed src="' + pdf + '" width="100%" height="600px">';
+    }
+  </script>
+
+
+
 
   <!-- informação -->
   <section class="info_section ">

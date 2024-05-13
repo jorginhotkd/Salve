@@ -28,19 +28,6 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- responsive style -->
   <link href="css/responsive.css" rel="stylesheet" />
-
-  <style>
-    /* Estilo para as opções de escolha */
-    select {
-        padding: 8px; /* Adiciona preenchimento interno */
-        border-radius: 5px; /* Borda arredondada */
-        border: 1px solid #ccc; /* Borda sólida */
-        width: 130px; /* Largura */
-        font-size: 15px; /* Tamanho da fonte */
-        margin-right: 10px; /* Margem à direita */
-        margin-left: 10px;
-    }
-</style>
 </head>
 
 <body class="sub_page">
@@ -91,60 +78,98 @@
   <!-- work section -->
   <section class="work_section layout_padding">
     <div class="container">
-        <div class="heading_container">
-            <h2>
-                CONSULTA
-            </h2>
-            <p>
-                Página para pesquisa do tema ou das questões.
-            </p>
+      <div class="heading_container">
+        <h2>
+          CONSULTA
+        </h2>
+        <p>
+          Página para pesquisa do tema ou das questões.
+        </p>
+      </div>
+      <div class="work_container layout_padding2">
+        <div class="box b-1">
+          <img src="images/w-1.png" alt="">
         </div>
-        <div class="work_container layout_padding2" style="display: flex; flex-wrap: wrap;">
-            <div class="box b-1">
-                <img src="images/w-1.png" alt="">
-            </div>
-            <div class="box b-2">
-                <img src="images/w-2.png" alt="">
-            </div>
-            <div class="box b-3">
-                <img src="images/w-3.png" alt="">
-            </div>
-            <div class="box b-4">
-                <img src="images/w-4.png" alt="">
-            </div>
+        <div class="box b-2">
+          <img src="images/w-2.png" alt="">
+        </div>
+        <div class="box b-3">
+          <img src="images/w-3.png" alt="">
+        </div>
+        <div class="box b-4">
+          <img src="images/w-4.png" alt="">
+        </div>
 
-            <!-- Adicionando botões para os PDFs -->
-            <form action="consulta.php" method="POST" style="display: flex; align-items: center;">
-                <label for="faculdade">Faculdade: </label>
-                <select name="faculdade" id="faculdade">
-                    <option value="faculdade1">ENEM</option>
-                    <option value="faculdade2">USP</option>
-                    <option value="faculdade3">UNESP</option>
-                    <option value="faculdade3">UNICAMP</option>                   
-                    <option value="faculdade3">FUVEST</option>
-                </select>
-              
-                <label for="materia">Matéria: </label>
-                <select name="materia" id="materia">
-                  <option value="artes">Artes</option>
-                  <option value="biologia">Biologia</option>
-                  <option value="educacao_fisica">Educação Física</option>
-                  <option value="filosofia">Filosofia</option>
-                  <option value="materia3">Fisíca</option>
-                  <option value="geografia">Geografia</option>
-                  <option value="historia">História</option>
-                  <option value="ingles">Inglês</option>
-                  <option value="literatura">Literatura</option>
-                  <option value="matematica">Matemática</option>
-                  <option value="portugues">Português</option>
-                  <option value="sociologia">Sociologia</option>                 
-                </select>
-              
-                <button type="submit" style="margin-left: 20px;">Consultar</button>
-            </form>
+        <!-- Adicionando botões para os PDFs -->
+        <div class="box b-5">
+          <h3>Selecione a Faculdade:</h3>
+          <button class="pdfButton" onclick="abrirPDF('pdf/teste.pdf')">ENEM</button>
+          <button class="pdfButton" onclick="abrirPDF('pdf2.pdf')">USP</button>
+          <button class="pdfButton" onclick="abrirPDF('pdf3.pdf')">UNICAMP</button>
+          <button class="pdfButton" onclick="abrirPDF('pdf4.pdf')">UNESP</button>
+          <button class="pdfButton" onclick="abrirPDF('pdf5.pdf')">FUVEST</button>
         </div>
+
+        <!-- Área para exibir o PDF -->
+        <div class="pdfViewer" id="pdfContainer"></div>
+
+      </div>
     </div>
-</section>
+  </section>
+
+  <style>
+    .pdfButton {
+      margin-right: 5px;
+      /* Adiciona um espaçamento entre os botões */
+      background-color: #6b2509;
+      /* Cor de fundo do botão */
+      color: white;
+      /* Cor do texto do botão */
+      border: none;
+      /* Remove a borda do botão */
+      padding: 5px 10px;
+      /* Adiciona preenchimento interno ao botão */
+      text-align: center;
+      /* Alinha o texto ao centro */
+      text-decoration: none;
+      /* Remove a decoração do texto */
+      display: inline-block;
+      /* Permite que o botão ocupe apenas o espaço necessário */
+      font-size: 16px;
+      /* Tamanho da fonte */
+      cursor: pointer;
+      /* Altera o cursor ao passar sobre o botão */
+      border-radius: 5px;
+      /* Adiciona bordas arredondadas */
+      transition: background-color 0.3s;
+      /* Adiciona uma transição suave na cor de fundo */
+    }
+
+    .pdfButton:hover {
+      background-color: #c08607;
+      /* Altera a cor de fundo ao passar o mouse sobre o botão */
+    }
+
+    .pdfViewer {
+      margin-top: 20px;
+      /* Adiciona uma margem entre os botões e o contêiner do PDF */
+      clear: both;
+      /* Garante que o contêiner do PDF comece em uma nova linha */
+      width: 100%;
+      /* Garante que o contêiner do PDF ocupe toda a largura disponível */
+    }
+  </style>
+
+  <script>
+    function abrirPDF(pdf) {
+      // Exibindo o PDF selecionado dentro da página
+      var pdfContainer = document.getElementById("pdfContainer");
+      pdfContainer.innerHTML = '<embed src="' + pdf + '" width="100%" height="600px">';
+    }
+  </script>
+
+
+
 
   <!-- informação -->
   <section class="info_section ">

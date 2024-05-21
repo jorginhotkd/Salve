@@ -30,7 +30,7 @@
 
 <body class="sub_page">
   <div class="hero_area">
-    <!-- header section strats -->
+    <!-- header section starts -->
     <header class="header_section">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
@@ -70,7 +70,6 @@
     </header>
     <!-- end header section -->
   </div>
-
 
   <!-- work section -->
   <section class="work_section layout_padding">
@@ -161,24 +160,23 @@
       var pdfContainer = document.getElementById('pdfContainer');
       pdfContainer.innerHTML = ''; // Limpa o conteúdo anterior
 
-      if (faculdade === 'UNICAMP') {
-        var unicampIframe = document.createElement('iframe');
-        unicampIframe.src = 'pdf/unicamp.pdf';
-        unicampIframe.width = '100%';
-        unicampIframe.height = '600px';
-        pdfContainer.appendChild(unicampIframe);
+      var iframe = document.createElement('iframe');
+      iframe.src = 'pdf/' + faculdade + '.pdf';
+      iframe.width = '100%';
+      iframe.height = '600px';
+      iframe.type = 'application/pdf';
+      iframe.style.border = 'none'; // Remover bordas do iframe
+      pdfContainer.appendChild(iframe);
 
+      // Adiciona um segundo iframe para o gabarito no caso da UNICAMP
+      if (faculdade === 'UNICAMP') {
         var gabaritoIframe = document.createElement('iframe');
         gabaritoIframe.src = 'pdf/gabarito.pdf';
         gabaritoIframe.width = '100%';
         gabaritoIframe.height = '600px';
+        gabaritoIframe.type = 'application/pdf';
+        gabaritoIframe.style.border = 'none'; // Remover bordas do iframe
         pdfContainer.appendChild(gabaritoIframe);
-      } else {
-        var iframe = document.createElement('iframe');
-        iframe.src = 'pdf/' + faculdade + '.pdf';
-        iframe.width = '100%';
-        iframe.height = '600px';
-        pdfContainer.appendChild(iframe);
       }
     }
   </script>
